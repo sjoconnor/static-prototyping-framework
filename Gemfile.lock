@@ -21,6 +21,9 @@ GEM
       safe_yaml (~> 0.7.0)
     liquid (2.5.2)
     maruku (0.7.0)
+    net-scp (1.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.7.0)
     posix-spawn (0.3.6)
     pygments.rb (0.5.2)
       posix-spawn (~> 0.3.6)
@@ -35,4 +38,5 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  net-scp
   rubyzip

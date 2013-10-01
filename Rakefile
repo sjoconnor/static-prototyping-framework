@@ -1,4 +1,6 @@
 require 'zip'
+require 'net/scp'
+require 'highline/import'
 
 desc "Package up the generated site into a zip file."
 task :package do
@@ -11,4 +13,20 @@ task :package do
       zipfile.add(file.sub(directory, ''), file)
     end
   end
+end
+
+desc "Deploy _site to a remote server."
+task :deploy do
+  src         = "./_site"
+  destination = "test/"
+  remote      = "design-dev.sparkbase.com"
+  username    = `whoami`.chomp
+  password    = ask("Enter password: ") { |q| q.echo = false }
+
+  Net::SCP.upload!(remote,
+                   username,
+                   src,
+                   destination,
+                   :recursive => true,
+                   :ssh => { :password => password })
 end
