@@ -1,4 +1,4 @@
-Sparkbase Prototyping
+Prototyping
 ============================
 
 Installing
